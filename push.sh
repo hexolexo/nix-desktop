@@ -3,7 +3,7 @@ echo "Pushing changes..."
 git push "$@"
 if [ $? -eq 0 ]; then
     echo "=== Push successful, installing desktop ==="
-    sudo sh -c 'cd /etc/nixos && git pull && nixos-rebuild switch'
+    sudo sh -c 'cd /etc/nixos && git pull && nix-channel --update && nixos-rebuild switch'
 else
     echo "Push failed, deployment aborted"
     exit 1
