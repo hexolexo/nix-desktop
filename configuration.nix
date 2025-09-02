@@ -121,6 +121,14 @@ in {
 
     pass
     pinentry-tty
+
+    virt-manager
+    virt-viewer
+    spice
+    spice-gtk
+    spice-protocol
+    win-virtio
+    win-spice
   ];
 
   services = {
