@@ -84,7 +84,7 @@ in {
     libreoffice # fucking docx
     mcstatus
     grimblast
-    obsidian
+    #obsidian
     eww
     unstable.alacritty
     clipse
