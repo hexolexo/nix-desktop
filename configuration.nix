@@ -97,6 +97,27 @@ in {
     bluez
 
     bluez-tools
+
+    unstable.neovim
+    micro
+    marksman
+    git
+    clang
+    go
+    cargo
+    rustc
+    gcc
+    elmPackages.elm-language-server
+    lua-language-server
+    nil # Nix LSP
+    gopls # Go LSP
+    bash-language-server
+    pkg-config
+    ripgrep
+    jq
+    stylua # Lua formatter
+    fzf
+    wl-clipboard
   ];
 
   services = {
