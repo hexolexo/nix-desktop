@@ -43,8 +43,6 @@ in {
       "networkmanager"
       "wheel"
     ];
-    #packages = with pkgs; [
-    #];
   };
   environment.systemPackages = with pkgs; [
     fish
@@ -87,14 +85,13 @@ in {
     pamixer
 
     unstable.neovim
+    brightnessctl
     micro
     marksman
     git
-    clang
     go
     cargo
     rustc
-    gcc
     elmPackages.elm-language-server
     lua-language-server
     nil # Nix LSP
