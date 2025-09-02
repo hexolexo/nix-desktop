@@ -118,6 +118,9 @@ in {
     stylua # Lua formatter
     fzf
     wl-clipboard
+
+    pass
+    pinentry-tty
   ];
 
   services = {
@@ -192,7 +195,12 @@ in {
   '';
   networking.firewall.allowedUDPPorts = [51820 6567];
   networking.firewall.allowedTCPPorts = [6567];
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
+  services.pcscd.enable = true;
   nix.gc = {
     automatic = true;
     dates = "weekly";
