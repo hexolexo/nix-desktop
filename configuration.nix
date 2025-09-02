@@ -3,6 +3,7 @@
 in {
   imports = [
     ./hardware-configuration.nix
+    ./networking.nix
     ./fanCtrl.nix
   ];
   security.polkit.enable = true;
@@ -33,7 +34,6 @@ in {
     LC_TIME = "en_AU.UTF-8";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   programs.fish.enable = true;
   users.users.hexolexo = {
     isNormalUser = true;
@@ -54,39 +54,30 @@ in {
     proxychains-ng
     gnome-disk-utility
     thefuck
-    polkit_gnome # Polkit authentication agent
+    polkit_gnome
     zoxide
     fzf
     highlight
     pinentry-tty
     pass
     socat
-    gcc
     pkg-config
-    jq
     wl-clipboard
-    fzf
-    highlight
 
     gsettings-desktop-schemas
     glib
-    #catppuccin-gtk
     (catppuccin-gtk.override {
-      accents = ["lavender"]; # Add the accents you want
-      variant = "mocha"; # Default variant
-      # You can also specify multiple variants:
-      # variants = [ "mocha" "frappe" ];
+      accents = ["lavender"];
+      variant = "mocha";
     })
-    unstable.hyprland
+    #hyprland
     librewolf
     mindustry-wayland
-    nyxt
     libreoffice # fucking docx
     mcstatus
     grimblast
-    #obsidian
     eww
-    unstable.alacritty
+    alacritty
     clipse
     wofi
     mpv
@@ -94,9 +85,6 @@ in {
     swaybg
     swaylock-effects
     pamixer
-    bluez
-
-    bluez-tools
 
     unstable.neovim
     micro
@@ -112,15 +100,9 @@ in {
     nil # Nix LSP
     gopls # Go LSP
     bash-language-server
-    pkg-config
     ripgrep
     jq
     stylua # Lua formatter
-    fzf
-    wl-clipboard
-
-    pass
-    pinentry-tty
 
     virt-manager
     virt-viewer
@@ -137,7 +119,6 @@ in {
 
     xserver = {
       enable = true;
-      # Configure keymap in X11
       xkb = {
         layout = "us";
         variant = "colemak";
@@ -155,26 +136,18 @@ in {
   };
 
   security.rtkit.enable = true;
-  console = {
-    keyMap = "colemak";
-  };
+  console.keyMap = "colemak";
 
   programs = {
     firefox.enable = true;
     hyprland.enable = true;
   };
 
-  fonts.packages = [
-    pkgs.nerd-fonts.fira-code
-  ];
+  fonts.packages = [pkgs.nerd-fonts.fira-code];
   hardware = {
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
 
   services.fanControl = {
     enable = true;
@@ -182,30 +155,11 @@ in {
     quietDuty = 40;
     maxDuty = 100;
   };
-  networking.hosts = {
-    "REDACTED_HOME_IP" = ["home"];
-    "192.168.1.153" = ["server"];
-    #"192.168.0.10" = ["backup"];
-  };
-  environment.etc."proxychains.conf".text = ''
-    # Proxy DNS requests
-    proxy_dns
 
-    # Timeouts in milliseconds
-    tcp_read_time_out 15000
-    tcp_connect_time_out 8000
-
-    # Proxy chain type
-    strict_chain
-
-    [ProxyList]
-    socks5 127.0.0.1 1080
-  '';
-  networking.firewall.allowedUDPPorts = [51820 6567];
-  networking.firewall.allowedTCPPorts = [6567];
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-tty;
   };
 
   services.pcscd.enable = true;
