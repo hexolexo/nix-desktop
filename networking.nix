@@ -22,7 +22,7 @@
   networking.firewall.allowedTCPPorts = [6567];
   networking.wireguard.interfaces = {
     wg0 = {
-      ips = ["10.100.0.2/24"];
+      ips = ["10.0.0.2/24"];
 
       privateKeyFile = "/etc/wireguard/privkey";
 
