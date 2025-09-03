@@ -45,7 +45,6 @@ in {
     ];
   };
   environment.systemPackages = with pkgs; [
-    fish
     starship
     anki
     shadowsocks-rust
@@ -68,7 +67,6 @@ in {
       accents = ["lavender"];
       variant = "mocha";
     })
-    #hyprland
     librewolf
     mindustry-wayland
     libreoffice # fucking docx
@@ -144,6 +142,7 @@ in {
   hardware = {
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
+    graphics.enable = true;
   };
 
   services.fanControl = {
