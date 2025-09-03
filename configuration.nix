@@ -54,6 +54,7 @@ in {
     polkit_gnome
     zoxide
     fzf
+    wireguard-tools
     highlight
     pinentry-tty
     pass

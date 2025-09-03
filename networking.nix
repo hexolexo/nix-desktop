@@ -20,4 +20,21 @@
   '';
   networking.firewall.allowedUDPPorts = [51820 6567];
   networking.firewall.allowedTCPPorts = [6567];
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = ["10.100.0.2/24"];
+
+      privateKeyFile = "/etc/wireguard/privkey";
+
+      peers = [
+        {
+          publicKey = "6Kyt3gNgDW/9g14BYSMyaNgVPHA7AR7fthLoUOMgRQE=";
+          endpoint = "REDACTED_HOME_IP:51820";
+
+          allowedIPs = ["10.0.0.0/24"];
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
 }
