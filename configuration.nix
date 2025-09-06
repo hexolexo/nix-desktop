@@ -85,6 +85,7 @@ in {
 
     unstable.neovim
     brightnessctl
+    yt-dlp
     micro
     marksman
     git
