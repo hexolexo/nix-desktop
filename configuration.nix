@@ -99,6 +99,7 @@ in {
     bash-language-server
     ripgrep
     jq
+    obsidian
     stylua # Lua formatter
 
     virt-manager
