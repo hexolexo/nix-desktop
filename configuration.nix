@@ -53,7 +53,6 @@ in {
     gnome-disk-utility
     thefuck
     polkit_gnome
-    steam
     zoxide
     fzf
     wireguard-tools
@@ -140,6 +139,7 @@ in {
 
   programs = {
     firefox.enable = true;
+    steam.enable = true;
     hyprland.enable = true;
   };
 
