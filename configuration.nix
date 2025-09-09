@@ -6,6 +6,7 @@ in {
     ./networking.nix
     ./fanCtrl.nix
   ];
+  nixpkgs.config.allowUnfree = true;
   security.polkit.enable = true;
   services.udisks2.enable = true;
   services.dbus.enable = true;
