@@ -52,6 +52,7 @@ in {
     gnome-disk-utility
     thefuck
     polkit_gnome
+    steam
     zoxide
     fzf
     wireguard-tools
