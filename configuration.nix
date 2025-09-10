@@ -156,21 +156,37 @@ in {
     quietDuty = 40;
     maxDuty = 100;
   };
-
   containers.firefox-browser = {
-    autoStart = false; # Start manually
+    autoStart = false;
     config = {pkgs, ...}: {
       environment.systemPackages = [pkgs.firefox];
       services.xserver.enable = true;
-      users.users.firefox.isNormalUser = true;
+      users.users.firefox = {
+        isNormalUser = true;
+        uid = 1000; # Match your host user ID
+      };
+      environment.variables = {
+        DISPLAY = ":0";
+      };
     };
-    forwardX11 = true;
-    bindMounts."/Downloads" = {
-      hostPath = "/home/yourusername/Downloads";
-      isReadOnly = false;
+    bindMounts = {
+      "/Downloads" = {
+        hostPath = "/home/hexolexo/Downloads";
+        isReadOnly = false;
+      };
+      "/tmp/.X11-unix" = {
+        hostPath = "/tmp/.X11-unix";
+        isReadOnly = false;
+      };
     };
+    allowedDevices = [
+      {
+        node = "/dev/dri";
+        modifier = "rw";
+      }
+    ];
+    extraFlags = ["--share-net"];
   };
-
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
