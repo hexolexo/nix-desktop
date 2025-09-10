@@ -179,7 +179,7 @@ in {
         isReadOnly = false;
       };
     };
-    extraFlags = ["--share-net"];
+    #extraFlags = ["--share-net"];
   };
   programs.gnupg.agent = {
     enable = true;
