@@ -138,7 +138,7 @@ in {
   console.keyMap = "colemak";
 
   programs = {
-    firefox.enable = true;
+    #firefox.enable = true;
     steam.enable = true;
     hyprland.enable = true;
   };
@@ -155,6 +155,20 @@ in {
     allowedUsers = ["hexolexo"];
     quietDuty = 40;
     maxDuty = 100;
+  };
+
+  containers.firefox-browser = {
+    autoStart = false; # Start manually
+    config = {pkgs, ...}: {
+      environment.systemPackages = [pkgs.firefox];
+      services.xserver.enable = true;
+      users.users.firefox.isNormalUser = true;
+    };
+    forwardX11 = true;
+    bindMounts."/Downloads" = {
+      hostPath = "/home/yourusername/Downloads";
+      isReadOnly = false;
+    };
   };
 
   programs.gnupg.agent = {
