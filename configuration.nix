@@ -163,7 +163,6 @@ in {
       environment.systemPackages = [pkgs.firefox];
       users.users.firefox = {
         isNormalUser = true;
-        uid = 1000; # Match your host user ID
       };
       environment.variables = {
         WAYLAND_DISPLAY = "wayland-1"; # or wayland-0
