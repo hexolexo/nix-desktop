@@ -156,17 +156,18 @@ in {
     quietDuty = 40;
     maxDuty = 100;
   };
+
   containers.firefox-browser = {
     autoStart = false;
     config = {pkgs, ...}: {
       environment.systemPackages = [pkgs.firefox];
-      services.xserver.enable = true;
       users.users.firefox = {
         isNormalUser = true;
         uid = 1000; # Match your host user ID
       };
       environment.variables = {
-        DISPLAY = ":0";
+        WAYLAND_DISPLAY = "wayland-1"; # or wayland-0
+        XDG_RUNTIME_DIR = "/run/user/1000";
       };
     };
     bindMounts = {
@@ -174,17 +175,11 @@ in {
         hostPath = "/home/hexolexo/Downloads";
         isReadOnly = false;
       };
-      "/tmp/.X11-unix" = {
-        hostPath = "/tmp/.X11-unix";
+      "/run/user/1000" = {
+        hostPath = "/run/user/1000";
         isReadOnly = false;
       };
     };
-    allowedDevices = [
-      {
-        node = "/dev/dri";
-        modifier = "rw";
-      }
-    ];
     extraFlags = ["--share-net"];
   };
   programs.gnupg.agent = {
