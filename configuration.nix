@@ -138,7 +138,7 @@ in {
   console.keyMap = "colemak";
 
   programs = {
-    #firefox.enable = true;
+    firefox.enable = true;
     steam.enable = true;
     hyprland.enable = true;
   };
