@@ -92,7 +92,7 @@ in {
     git
     go
     cargo
-    xorg.libxkbcommon
+    libxkbcommon
     rustc
     elmPackages.elm-language-server
     lua-language-server
