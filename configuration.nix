@@ -140,7 +140,7 @@ in {
 
   programs = {
     firefox.enable = true;
-    #steam.enable = true;
+    steam.enable = true;
     hyprland.enable = true;
   };
 
