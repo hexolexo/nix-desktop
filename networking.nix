@@ -1,7 +1,9 @@
-{...}: {
+{...}: let
+  secrets = import ./secrets.nix;
+in {
   networking.hosts = {
-    "REDACTED_HOME_IP" = ["home"];
-    "192.168.1.153" = ["server"];
+    "${secrets.HomeIP}" = ["home"];
+    "${secrets.ServerIP}" = ["server"];
     #"192.168.0.10" = ["backup"];
   };
   environment.etc."proxychains.conf".text = ''
@@ -29,7 +31,7 @@
       peers = [
         {
           publicKey = "6Kyt3gNgDW/9g14BYSMyaNgVPHA7AR7fthLoUOMgRQE=";
-          endpoint = "REDACTED_HOME_IP:51820";
+          endpoint = "${secrets.HomeIP}:51820";
 
           allowedIPs = ["10.0.0.0/24"];
           persistentKeepalive = 25;
