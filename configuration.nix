@@ -189,6 +189,15 @@ in {
     pinentryPackage = pkgs.pinentry-tty;
   };
 
+  services.logind = {
+    lidSwitch = "ignore"; # Keeps WiFi/Bluetooth active
+  };
+
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "ondemand";
+  };
+
   services.pcscd.enable = true;
   nix.gc = {
     automatic = true;
