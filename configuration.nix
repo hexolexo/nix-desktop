@@ -189,8 +189,18 @@ in {
     pinentryPackage = pkgs.pinentry-tty;
   };
 
-  services.logind.lidSwitch = "ignore"; # Keeps WiFi/Bluetooth active
-  services.logind.extraConfig = "HandleLidSwitch=ignore";
+  services.logind = {
+    lidSwitch = "lock"; # When on battery
+    lidSwitchExternalPower = "lock"; # When plugged in
+    lidSwitchDocked = "ignore"; # When docked/external monitor
+  };
+
+  networking.networkmanager.wifi.powersave = false;
+
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
 
   powerManagement = {
     enable = true;
