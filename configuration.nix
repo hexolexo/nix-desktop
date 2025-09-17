@@ -159,30 +159,6 @@ in {
     maxDuty = 100;
   };
 
-  containers.firefox-browser = {
-    autoStart = false;
-    config = {pkgs, ...}: {
-      environment.systemPackages = [pkgs.firefox];
-      users.users.firefox = {
-        isNormalUser = true;
-      };
-      environment.variables = {
-        WAYLAND_DISPLAY = "wayland-1"; # or wayland-0
-        XDG_RUNTIME_DIR = "/run/user/1000";
-      };
-    };
-    bindMounts = {
-      "/Downloads" = {
-        hostPath = "/home/hexolexo/Downloads";
-        isReadOnly = false;
-      };
-      "/run/user/1000" = {
-        hostPath = "/run/user/1000";
-        isReadOnly = false;
-      };
-    };
-    #extraFlags = ["--share-net"];
-  };
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -190,8 +166,8 @@ in {
   };
 
   services.logind = {
-    lidSwitch = "lock"; # When on battery
-    lidSwitchExternalPower = "lock"; # When plugged in
+    lidSwitch = "ignore"; # When on battery
+    lidSwitchExternalPower = "ignore"; # When plugged in
     lidSwitchDocked = "ignore"; # When docked/external monitor
   };
 
@@ -201,11 +177,6 @@ in {
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
-
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "ondemand";
-  };
 
   services.pcscd.enable = true;
   nix.gc = {
