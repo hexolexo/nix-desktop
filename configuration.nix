@@ -189,9 +189,8 @@ in {
     pinentryPackage = pkgs.pinentry-tty;
   };
 
-  services.logind = {
-    lidSwitch = "ignore"; # Keeps WiFi/Bluetooth active
-  };
+  services.logind.lidSwitch = "ignore"; # Keeps WiFi/Bluetooth active
+  services.logind.extraConfig = "HandleLidSwitch=ignore";
 
   powerManagement = {
     enable = true;
