@@ -105,6 +105,7 @@ in {
     stylua # Lua formatter
 
     virt-manager
+    keyd
     opentofu
     virt-viewer
     spice
