@@ -123,6 +123,7 @@ in {
           main = {
             capslock = "backspace";
             backspace = "noop";
+            rightalt = "esc";
           };
         };
       };
