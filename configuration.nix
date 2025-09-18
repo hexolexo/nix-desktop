@@ -105,7 +105,6 @@ in {
     stylua # Lua formatter
 
     virt-manager
-    keyd
     opentofu
     virt-viewer
     spice
@@ -116,6 +115,18 @@ in {
   ];
 
   services = {
+    keyd = {
+      enable = true;
+      keyboards.default = {
+        ids = ["*"];
+        settings = {
+          main = {
+            capslock = "backspace";
+            backspace = "noop";
+          };
+        };
+      };
+    };
     displayManager.ly.enable = true;
     blueman.enable = true;
 
