@@ -98,7 +98,7 @@ in {
     lua-language-server
     nil # Nix LSP
     gopls # Go LSP
-    bash-language-server
+    nodePackages.bash-language-server
     ripgrep
     jq
     obsidian
