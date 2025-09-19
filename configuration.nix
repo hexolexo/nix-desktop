@@ -124,6 +124,7 @@ in {
             capslock = "backspace";
             backspace = "noop";
             rightalt = "esc";
+            esc = "noop";
           };
         };
       };
