@@ -116,7 +116,7 @@ in {
 
   services = {
     keyd = {
-      enable = true;
+      #enable = true;
       keyboards.default = {
         ids = ["*"];
         settings = {
