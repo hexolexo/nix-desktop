@@ -72,6 +72,8 @@ in {
     librewolf
     mindustry-wayland
     libreoffice # fucking docx
+    feh
+    btop
     mcstatus
     grimblast
     eww
@@ -156,7 +158,7 @@ in {
 
   programs = {
     firefox.enable = true;
-    steam.enable = true;
+    #steam.enable = true;
     hyprland.enable = true;
   };
 
