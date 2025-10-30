@@ -164,9 +164,15 @@ in {
 
   fonts.packages = [pkgs.nerd-fonts.fira-code];
   hardware = {
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        amdvlk
+        rocmPackages.clr.icd
+      ];
+    };
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
-    graphics.enable = true;
   };
 
   services.fanControl = {
@@ -201,5 +207,12 @@ in {
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+
+  system.autoUpgrade = {
+    enable = true;
+    dates = "04:00";
+    allowReboot = false;
+  };
+
   system.stateVersion = "25.05";
 }
