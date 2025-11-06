@@ -20,8 +20,8 @@ in {
     [ProxyList]
     socks5 127.0.0.1 1080
   '';
-  networking.firewall.allowedUDPPorts = [51820 6567];
-  networking.firewall.allowedTCPPorts = [6567];
+  #networking.firewall.allowedUDPPorts = [51820 6567];
+  #networking.firewall.allowedTCPPorts = [6567];
   networking.wireguard.interfaces = {
     wg0 = {
       ips = ["10.0.0.2/24"];
