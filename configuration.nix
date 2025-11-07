@@ -210,6 +210,7 @@ in {
 
   system.autoUpgrade = {
     enable = true;
+    operations = "boot";
     dates = "04:00";
     allowReboot = false;
   };
