@@ -71,6 +71,7 @@ in {
     })
     librewolf
     mindustry-wayland
+    borgbackup
     libreoffice # fucking docx
     feh
     btop
