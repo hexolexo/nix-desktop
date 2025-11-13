@@ -4,7 +4,6 @@ in {
   networking.hosts = {
     "${secrets.HomeIP}" = ["home"];
     "${secrets.ServerIP}" = ["server"];
-    #"192.168.0.10" = ["backup"];
   };
   environment.etc."proxychains.conf".text = ''
     # Proxy DNS requests
