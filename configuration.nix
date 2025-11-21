@@ -118,9 +118,15 @@ in {
     win-spice
 
     libsForQt5.qtstyleplugin-kvantum
-    catppuccin-kvantum
+    (catppuccin-kvantum.override {
+      accent = "lavender";
+      variant = "mocha";
+    })
     libsForQt5.qt5ct
   ];
+  environment.variables = {
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+  };
   qt = {
     enable = true;
     platformTheme = "qt5ct";
