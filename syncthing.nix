@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   services.syncthing = {
     enable = true;
     user = "hexolexo";
@@ -10,7 +10,7 @@
     settings = {
       devices = {
         "phone" = {
-          id = "DEVICE-ID-FROM-PHONE-GOES-HERE";
+          id = "RXVKLMQ-KPMFZX2-ZRUFDOZ-6RUTNEG-GBQ4VVX-64I5JC6-BYWJJ74-HZZPVAO";
           addresses = ["tcp://10.0.0.5:22000"]; # your phone's WireGuard IP
         };
       };
@@ -30,8 +30,4 @@
       };
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    strawberry
-  ];
 }

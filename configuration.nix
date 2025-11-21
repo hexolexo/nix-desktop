@@ -4,6 +4,7 @@ in {
   imports = [
     ./hardware-configuration.nix
     ./networking.nix
+    ./syncthing.nix
     ./fanCtrl.nix
   ];
   nixpkgs.config.allowUnfree = true;
