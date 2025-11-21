@@ -116,7 +116,16 @@ in {
     spice-protocol
     win-virtio
     win-spice
+
+    libsForQt5.qtstyleplugin-kvantum
+    catppuccin-kvantum
+    qt5ct
   ];
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+    style = "kvantum";
+  };
 
   services = {
     keyd = {
