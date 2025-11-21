@@ -119,7 +119,7 @@ in {
 
     libsForQt5.qtstyleplugin-kvantum
     catppuccin-kvantum
-    qt5ct
+    libsForQt5.qt5ct
   ];
   qt = {
     enable = true;
