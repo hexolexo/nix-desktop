@@ -158,6 +158,7 @@ in {
   console.keyMap = "colemak";
 
   programs = {
+    kdeconnect.enable = true;
     firefox.enable = true;
     steam.enable = true;
     hyprland.enable = true;
