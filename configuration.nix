@@ -4,7 +4,7 @@ in {
   imports = [
     ./hardware-configuration.nix
     ./networking.nix
-    ./syncthing.nix
+    #./syncthing.nix
     ./fanCtrl.nix
   ];
   nixpkgs.config.allowUnfree = true;
@@ -206,10 +206,10 @@ in {
     pinentryPackage = pkgs.pinentry-tty;
   };
 
-  services.logind = {
-    lidSwitch = "ignore"; # When on battery
-    lidSwitchExternalPower = "ignore"; # When plugged in
-    lidSwitchDocked = "ignore"; # When docked/external monitor
+  services.logind.settings.Login = {
+    HandleLidSwitchDocked = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
+    HandleLidSwitch = "ignore";
   };
 
   networking.networkmanager.wifi.powersave = false;
