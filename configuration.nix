@@ -97,6 +97,7 @@ in {
     git
     go
     cargo
+    clang
     libxkbcommon
     rustc
     elmPackages.elm-language-server
