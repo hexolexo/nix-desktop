@@ -115,7 +115,7 @@ in {
     spice
     spice-gtk
     spice-protocol
-    win-virtio
+    virtio-win
     win-spice
 
     libsForQt5.qtstyleplugin-kvantum
