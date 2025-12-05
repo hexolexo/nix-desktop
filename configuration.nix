@@ -52,7 +52,6 @@ in {
     shadowsocks-rust
     proxychains-ng
     gnome-disk-utility
-    thefuck
     polkit_gnome
     zoxide
     fzf
