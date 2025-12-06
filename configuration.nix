@@ -232,7 +232,7 @@ in {
 
   system.autoUpgrade = {
     enable = true;
-    operations = "boot"; # Thank fuck someone implimented this
+    # operations = "boot";
     dates = "04:00";
     allowReboot = false;
   };
