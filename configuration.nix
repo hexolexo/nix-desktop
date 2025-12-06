@@ -47,84 +47,88 @@ in {
     ];
   };
   environment.systemPackages = with pkgs; [
-    starship
+    # Applications
     anki
-    shadowsocks-rust
-    proxychains-ng
     gnome-disk-utility
-    polkit_gnome
-    zoxide
-    fzf
-    wireguard-tools
-    highlight
-    pinentry-tty
-    pass
-    socat
-    pkg-config
-    wl-clipboard
+    libreoffice # fucking docx
+    librewolf
+    obsidian
 
-    gsettings-desktop-schemas
-    glib
+    # Theming
     (catppuccin-gtk.override {
       accents = ["lavender"];
       variant = "mocha";
     })
-    librewolf
-    mindustry-wayland
-    borgbackup
-    libreoffice # fucking docx
-    feh
-    btop
-    mcstatus
-    grimblast
-    eww
-    alacritty
-    clipse
-    wofi
-    mpv
-    ydotool
-    swaybg
-    swaylock-effects
-    pamixer
-
-    unstable.neovim
-    unzip
-    brightnessctl
-    yt-dlp
-    ffmpeg
-    micro
-    marksman
-    git
-    go
-    cargo
-    clang
-    libxkbcommon
-    rustc
-    elmPackages.elm-language-server
-    lua-language-server
-    nil # Nix LSP
-    gopls # Go LSP
-    nodePackages.bash-language-server
-    ripgrep
-    jq
-    obsidian
-    stylua # Lua formatter
-
-    virt-manager
-    opentofu
-    virt-viewer
-    spice
-    spice-gtk
-    spice-protocol
-    virtio-win
-    win-spice
-
     libsForQt5.qtstyleplugin-kvantum
     (catppuccin-kvantum.override {
       accent = "lavender";
       variant = "mocha";
     })
     libsForQt5.qt5ct
+
+    # Wayland/Desktop
+    alacritty
+    clipse
+    eww
+    feh
+    glib
+    grimblast
+    gsettings-desktop-schemas
+    mpv
+    pamixer
+    pinentry-tty
+    polkit_gnome
+    swaybg
+    swaylock-effects
+    wofi
+
+    # Development
+    cargo
+    clang
+    elmPackages.elm-language-server
+    git
+    go
+    gopls # Go LSP
+    jq
+    lua-language-server
+    marksman
+    micro
+    nil # Nix LSP
+    nodePackages.bash-language-server
+    opentofu
+    pkg-config
+    ripgrep
+    rustc
+    stylua # Lua formatter
+    unstable.neovim
+    unzip
+
+    # Shell/Terminal
+    btop
+    fzf
+    highlight
+    pass
+    starship
+    zoxide
+
+    # System Tools
+    borgbackup
+    brightnessctl
+    ffmpeg
+    libxkbcommon
+    socat
+    wireguard-tools
+    wl-clipboard
+    yt-dlp
+
+    # Virtualisation
+    spice
+    spice-gtk
+    spice-protocol
+    virt-manager
+    virt-viewer
+    virtio-win
+    win-spice
   ];
   environment.variables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
@@ -228,7 +232,7 @@ in {
 
   system.autoUpgrade = {
     enable = true;
-    #operations = "boot";
+    operations = "boot"; # Thank fuck someone implimented this
     dates = "04:00";
     allowReboot = false;
   };
