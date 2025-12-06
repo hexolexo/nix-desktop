@@ -110,6 +110,8 @@ in {
     pass
     starship
     zoxide
+    mutagen
+    vhs
 
     # System Tools
     borgbackup
