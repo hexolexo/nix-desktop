@@ -88,6 +88,7 @@ in {
     pamixer
 
     unstable.neovim
+    unzip
     brightnessctl
     yt-dlp
     ffmpeg
