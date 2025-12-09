@@ -151,9 +151,9 @@ in {
       musicDirectory = "/home/hexolexo/Music";
       extraConfig = ''
         audio_output {
-          type "pipewire"
-          name "PipeWire"
-          server = "/run/user/1000/pulse/native"
+            type "pulse"
+            name "PulseAudio"
+            server "/run/user/1000/pulse/native"
         }
       '';
     };
