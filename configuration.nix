@@ -147,6 +147,7 @@ in {
     mpd = {
       enable = true;
       user = "hexolexo";
+      group = "users";
       musicDirectory = "/home/hexolexo/Music";
       extraConfig = ''
         audio_output {
