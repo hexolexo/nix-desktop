@@ -153,6 +153,7 @@ in {
         audio_output {
           type "pipewire"
           name "PipeWire"
+          server = "/run/user/1000/pulse/native"
         }
       '';
     };
