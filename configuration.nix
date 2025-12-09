@@ -146,6 +146,7 @@ in {
   services = {
     mpd = {
       enable = true;
+      user = "hexolexo";
       musicDirectory = "/home/hexolexo/Music";
       extraConfig = ''
         audio_output {
