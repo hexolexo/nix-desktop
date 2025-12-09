@@ -67,6 +67,8 @@ in {
     libsForQt5.qt5ct
 
     # Wayland/Desktop
+    ncmpcpp
+    mpc
     alacritty
     clipse
     eww
@@ -142,6 +144,16 @@ in {
   };
 
   services = {
+    mpd = {
+      enable = true;
+      musicDirectory = "/home/hexolexo/Music";
+      extraConfig = ''
+        audio_output {
+          type "pipewire"
+          name "PipeWire Sound Server"
+        }
+      '';
+    };
     keyd = {
       enable = true;
       keyboards.default = {
