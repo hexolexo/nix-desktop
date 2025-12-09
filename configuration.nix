@@ -69,6 +69,7 @@ in {
     # Wayland/Desktop
     ncmpcpp
     mpc
+    waybar
     alacritty
     clipse
     eww
